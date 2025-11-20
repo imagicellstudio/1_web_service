@@ -129,5 +129,27 @@ public class JwtTokenProvider {
     public Long getAccessTokenExpirationTime() {
         return accessTokenExpirationTime / 1000;
     }
+
+    /**
+     * 토큰의 남은 유효 시간 반환 (밀리초)
+     */
+    public long getExpirationTime(String token) {
+        try {
+            Claims claims = Jwts.parserBuilder()
+                    .setSigningKey(secretKey)
+                    .build()
+                    .parseClaimsJws(token)
+                    .getBody();
+            
+            Date expiration = claims.getExpiration();
+            Date now = new Date();
+            
+            long remaining = expiration.getTime() - now.getTime();
+            return Math.max(remaining, 0);
+        } catch (Exception e) {
+            log.error("토큰 만료 시간 조회 실패: {}", e.getMessage());
+            return 0;
+        }
+    }
 }
 

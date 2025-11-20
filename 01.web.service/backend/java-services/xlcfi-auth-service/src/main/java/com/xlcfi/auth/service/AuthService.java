@@ -22,6 +22,7 @@ public class AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final TokenBlacklistService tokenBlacklistService;
 
     /**
      * 회원가입
@@ -84,6 +85,9 @@ public class AuthService {
         String accessToken = jwtTokenProvider.generateAccessToken(user);
         String refreshToken = jwtTokenProvider.generateRefreshToken(user);
 
+        // Refresh Token을 Redis에 저장 (선택적)
+        tokenBlacklistService.saveRefreshToken(user.getId(), refreshToken, 2592000000L); // 30일
+
         log.info("로그인 성공: userId={}, email={}", user.getId(), user.getEmail());
 
         return LoginResponse.builder()
@@ -93,6 +97,20 @@ public class AuthService {
                 .expiresIn(jwtTokenProvider.getAccessTokenExpirationTime())
                 .user(UserResponse.from(user))
                 .build();
+    }
+
+    /**
+     * 로그아웃
+     */
+    @Transactional
+    public void logout(Long userId, String accessToken, String refreshToken) {
+        // 토큰을 블랙리스트에 추가
+        tokenBlacklistService.addToBlacklist(accessToken, refreshToken);
+        
+        // Redis에서 Refresh Token 삭제
+        tokenBlacklistService.deleteRefreshToken(userId);
+        
+        log.info("로그아웃 완료: userId={}", userId);
     }
 
     /**

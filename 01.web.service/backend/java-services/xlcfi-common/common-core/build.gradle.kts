@@ -9,6 +9,12 @@ dependencies {
     // Security (for annotations)
     implementation("org.springframework.security:spring-security-core")
     
+    // Redis (for Rate Limiting)
+    implementation("org.springframework.boot:spring-boot-starter-data-redis")
+    
+    // Swagger/OpenAPI
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
+    
     // Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")

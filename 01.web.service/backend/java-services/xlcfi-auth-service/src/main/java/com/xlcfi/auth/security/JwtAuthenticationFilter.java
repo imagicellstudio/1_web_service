@@ -28,6 +28,7 @@ import java.util.Collections;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     private final JwtTokenProvider jwtTokenProvider;
+    private final com.xlcfi.auth.service.TokenBlacklistService tokenBlacklistService;
 
     @Override
     protected void doFilterInternal(
@@ -39,20 +40,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             // 1. Request Header에서 JWT 토큰 추출
             String jwt = getJwtFromRequest(request);
 
-            // 2. 토큰 유효성 검증
+            // 2. 토큰이 블랙리스트에 있는지 확인
+            if (StringUtils.hasText(jwt) && tokenBlacklistService.isBlacklisted(jwt)) {
+                log.warn("블랙리스트에 등록된 토큰입니다");
+                SecurityContextHolder.clearContext();
+                filterChain.doFilter(request, response);
+                return;
+            }
+
+            // 3. 토큰 유효성 검증
             if (StringUtils.hasText(jwt) && jwtTokenProvider.validateToken(jwt)) {
                 
-                // 3. 토큰에서 사용자 정보 추출
+                // 4. 토큰에서 사용자 정보 추출
                 Long userId = jwtTokenProvider.getUserIdFromToken(jwt);
                 String email = jwtTokenProvider.getEmailFromToken(jwt);
                 String role = jwtTokenProvider.getRoleFromToken(jwt);
 
                 log.debug("JWT 인증 성공: userId={}, email={}, role={}", userId, email, role);
 
-                // 4. 권한 정보 생성
+                // 5. 권한 정보 생성
                 SimpleGrantedAuthority authority = new SimpleGrantedAuthority("ROLE_" + role);
 
-                // 5. Authentication 객체 생성
+                // 6. Authentication 객체 생성
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 userId,
@@ -62,10 +71,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 
                 authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-                // 6. SecurityContext에 인증 정보 설정
+                // 7. SecurityContext에 인증 정보 설정
                 SecurityContextHolder.getContext().setAuthentication(authentication);
 
-                // 7. Request Attribute에 userId 설정 (Controller에서 사용)
+                // 8. Request Attribute에 userId 설정 (Controller에서 사용)
                 request.setAttribute("userId", userId);
                 request.setAttribute("email", email);
                 request.setAttribute("role", role);
