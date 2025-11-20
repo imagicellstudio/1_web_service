@@ -1,26 +1,24 @@
-plugins {
-    `java-library`
-}
-
 dependencies {
     // Spring Boot
-    api("org.springframework.boot:spring-boot-starter")
-    api("org.springframework.boot:spring-boot-starter-validation")
+    implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-validation")
     
-    // Jackson
-    api("com.fasterxml.jackson.core:jackson-databind")
-    api("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    // AOP
+    implementation("org.springframework.boot:spring-boot-starter-aop")
     
-    // Apache Commons
-    api("org.apache.commons:commons-lang3")
-    api("org.apache.commons:commons-collections4:4.4")
+    // Security (for annotations)
+    implementation("org.springframework.security:spring-security-core")
+    
+    // Lombok
+    compileOnly("org.projectlombok:lombok")
+    annotationProcessor("org.projectlombok:lombok")
 }
 
-tasks.bootJar {
+// Disable Spring Boot bootJar for library module
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
     enabled = false
 }
 
-tasks.jar {
+tasks.named<Jar>("jar") {
     enabled = true
 }
-
