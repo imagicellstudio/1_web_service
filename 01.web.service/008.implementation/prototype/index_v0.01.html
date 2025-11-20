@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpicyJump - Korean Food Marketplace v0.01</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main_v0.01.css">
+</head>
+<body>
+    <!-- Version: v0.01 - HTML Prototype -->
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <span class="logo-icon">🌶️</span>
+                    <span class="logo-text">SpicyJump</span>
+                </div>
+
+                <!-- Navigation -->
+                <nav class="nav desktop-nav">
+                    <div class="nav-item dropdown">
+                        <button class="nav-link">카테고리 ▼</button>
+                        <div class="dropdown-menu">
+                            <a href="#" class="dropdown-item">김치/반찬</a>
+                            <a href="#" class="dropdown-item">장류/양념</a>
+                            <a href="#" class="dropdown-item">면류</a>
+                            <a href="#" class="dropdown-item">과자/간식</a>
+                        </div>
+                    </div>
+                </nav>
+
+                <!-- Search Bar -->
+                <div class="search-bar desktop-search">
+                    <input type="text" placeholder="상품을 검색하세요..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+
+                <!-- Right Menu -->
+                <div class="header-actions">
+                    <button class="icon-btn">
+                        <span class="cart-icon">🛒</span>
+                        <span class="badge">2</span>
+                    </button>
+                    <button class="icon-btn language-btn">🌐</button>
+                    <div class="auth-buttons desktop-auth">
+                        <a href="#" class="btn btn-text">로그인</a>
+                        <a href="#" class="btn btn-primary">회원가입</a>
+                    </div>
+                    <button class="mobile-menu-btn mobile-only">☰</button>
+                </div>
+            </div>
+
+            <!-- Mobile Search -->
+            <div class="search-bar mobile-search mobile-only">
+                <input type="text" placeholder="상품을 검색하세요..." class="search-input">
+                <button class="search-btn">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Authentic Korean Food<br>
+                    <span class="hero-title-highlight">Delivered to Your Door</span>
+                </h1>
+                <p class="hero-subtitle">
+                    전세계 어디서나 즐기는 정통 한식
+                </p>
+                <div class="hero-actions">
+                    <a href="#products" class="btn btn-large btn-primary">상품 둘러보기</a>
+                    <a href="#" class="btn btn-large btn-secondary">판매자 되기</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-image-placeholder">
+                    <span class="hero-emoji">🍜🥘🍱</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">카테고리</h2>
+            <div class="category-grid">
+                <a href="#" class="category-card">
+                    <div class="category-icon">🥬</div>
+                    <div class="category-name">김치/반찬</div>
+                    <div class="category-count">150개 상품</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">🌶️</div>
+                    <div class="category-name">장류/양념</div>
+                    <div class="category-count">120개 상품</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">🍜</div>
+                    <div class="category-name">면류</div>
+                    <div class="category-count">80개 상품</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">🍪</div>
+                    <div class="category-name">과자/간식</div>
+                    <div class="category-count">200개 상품</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">🍵</div>
+                    <div class="category-name">차/음료</div>
+                    <div class="category-count">60개 상품</div>
+                </a>
+                <a href="#" class="category-card">
+                    <div class="category-icon">🍚</div>
+                    <div class="category-name">쌀/잡곡</div>
+                    <div class="category-count">40개 상품</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Arrivals -->
+    <section class="products" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">신상품</h2>
+                <a href="#" class="view-all">전체보기 →</a>
+            </div>
+            <div class="product-grid">
+                <!-- Product Card 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🥬</div>
+                        <span class="product-badge new">NEW</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">배추김치 1kg</h3>
+                        <p class="product-name-en">Cabbage Kimchi</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.5 (10)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$15.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🌶️</div>
+                        <span class="product-badge new">NEW</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">태양초 고추장 500g</h3>
+                        <p class="product-name-en">Gochujang</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.8 (5)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$12.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🍜</div>
+                        <span class="product-badge new">NEW</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">신라면 5개입</h3>
+                        <p class="product-name-en">Shin Ramyun 5pack</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.7 (50)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$8.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🥟</div>
+                        <span class="product-badge new">NEW</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">왕교자 만두 1kg</h3>
+                        <p class="product-name-en">Gyoza Dumplings</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.3 (8)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$10.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🥕</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">깍두기 500g</h3>
+                        <p class="product-name-en">Radish Kimchi</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.2 (12)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$11.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🍚</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">햇반 12개입</h3>
+                        <p class="product-name-en">Instant Rice 12pack</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.6 (30)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$18.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🥤</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">바나나맛 우유 6개입</h3>
+                        <p class="product-name-en">Banana Milk 6pack</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.9 (45)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$12.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🍪</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">허니버터칩</h3>
+                        <p class="product-name-en">Honey Butter Chips</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.4 (22)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$4.50</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="products bestsellers">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">베스트 상품</h2>
+                <a href="#" class="view-all">전체보기 →</a>
+            </div>
+            <div class="product-grid">
+                <!-- Best Seller 1 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🍜</div>
+                        <span class="product-badge bestseller">BEST</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">신라면 20개입</h3>
+                        <p class="product-name-en">Shin Ramyun 20pack</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.8 (150)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$28.00</span>
+                            <span class="original-price">$32.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Best Seller 2 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🥬</div>
+                        <span class="product-badge bestseller">BEST</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">포기김치 2kg</h3>
+                        <p class="product-name-en">Whole Cabbage Kimchi</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.7 (89)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$25.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Best Seller 3 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🌶️</div>
+                        <span class="product-badge bestseller">BEST</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">순창 고추장 1kg</h3>
+                        <p class="product-name-en">Sunchang Gochujang</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★★</span>
+                            <span class="rating-text">4.9 (120)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$18.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+
+                <!-- Best Seller 4 -->
+                <div class="product-card">
+                    <div class="product-image">
+                        <div class="product-image-placeholder">🥟</div>
+                        <span class="product-badge bestseller">BEST</span>
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">비비고 왕교자 2kg</h3>
+                        <p class="product-name-en">Bibigo Gyoza 2kg</p>
+                        <div class="product-rating">
+                            <span class="stars">★★★★☆</span>
+                            <span class="rating-text">4.5 (67)</span>
+                        </div>
+                        <div class="product-price">
+                            <span class="price">$22.00</span>
+                        </div>
+                        <button class="btn btn-block btn-cart">장바구니 담기</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="footer-title">SpicyJump</h3>
+                    <p class="footer-text">전세계에 한식을 전하는 마켓플레이스</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link">📘</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">고객지원</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">자주 묻는 질문</a></li>
+                        <li><a href="#">배송 정보</a></li>
+                        <li><a href="#">교환/환불</a></li>
+                        <li><a href="#">고객센터</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">회사 정보</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">회사 소개</a></li>
+                        <li><a href="#">이용약관</a></li>
+                        <li><a href="#">개인정보처리방침</a></li>
+                        <li><a href="#">판매자 등록</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-subtitle">Newsletter</h4>
+                    <p class="footer-text">최신 상품과 혜택을 받아보세요</p>
+                    <div class="newsletter-form">
+                        <input type="email" placeholder="이메일 주소" class="newsletter-input">
+                        <button class="btn btn-primary">구독</button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 SpicyJump. All rights reserved. | Version: v0.01</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/main_v0.01.js"></script>
+</body>
+</html>

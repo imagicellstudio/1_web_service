@@ -1,0 +1,221 @@
+version: '3.8'
+
+services:
+  # PostgreSQL 데이터베이스
+  postgres:
+    image: postgres:15-alpine
+    container_name: xlcfi-postgres
+    environment:
+      POSTGRES_DB: xlcfi_dev
+      POSTGRES_USER: xlcfi_dev
+      POSTGRES_PASSWORD: dev_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U xlcfi_dev"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - xlcfi-network
+
+  # Redis 캐시
+  redis:
+    image: redis:7-alpine
+    container_name: xlcfi-redis
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes --requirepass dev_redis_password
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - xlcfi-network
+
+  # Zookeeper (Kafka 의존성)
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.5.0
+    container_name: xlcfi-zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    volumes:
+      - zookeeper_data:/var/lib/zookeeper/data
+      - zookeeper_log:/var/lib/zookeeper/log
+    networks:
+      - xlcfi-network
+
+  # Kafka 메시지 큐
+  kafka:
+    image: confluentinc/cp-kafka:7.5.0
+    container_name: xlcfi-kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+      - "9093:9093"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092,PLAINTEXT_INTERNAL://kafka:9093
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_INTERNAL:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT_INTERNAL
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+    volumes:
+      - kafka_data:/var/lib/kafka/data
+    healthcheck:
+      test: ["CMD", "kafka-broker-api-versions", "--bootstrap-server", "localhost:9092"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - xlcfi-network
+
+  # Elasticsearch 검색 엔진
+  elasticsearch:
+    image: elasticsearch:8.11.0
+    container_name: xlcfi-elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:9200/_cluster/health || exit 1"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    networks:
+      - xlcfi-network
+
+  # Java Auth Service
+  auth-service:
+    build:
+      context: ./java-services
+      dockerfile: ./xlcfi-auth-service/Dockerfile
+    container_name: xlcfi-auth-service
+    ports:
+      - "8081:8081"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/xlcfi_dev
+      SPRING_DATASOURCE_USERNAME: xlcfi_dev
+      SPRING_DATASOURCE_PASSWORD: dev_password
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_DATA_REDIS_PASSWORD: dev_redis_password
+      JWT_SECRET: your-256-bit-secret-key-change-this-in-production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - xlcfi-network
+    profiles:
+      - java-services
+
+  # Java Product Service
+  product-service:
+    build:
+      context: ./java-services
+      dockerfile: ./xlcfi-product-service/Dockerfile
+    container_name: xlcfi-product-service
+    ports:
+      - "8082:8082"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/xlcfi_dev
+      SPRING_DATASOURCE_USERNAME: xlcfi_dev
+      SPRING_DATASOURCE_PASSWORD: dev_password
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9093
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    networks:
+      - xlcfi-network
+    profiles:
+      - java-services
+
+  # Python Analytics Service
+  analytics-service:
+    build:
+      context: ./python-services/analytics-service
+      dockerfile: Dockerfile
+    container_name: xlcfi-analytics-service
+    ports:
+      - "5001:5001"
+    environment:
+      FLASK_ENV: development
+      DATABASE_URL: postgresql://xlcfi_dev:dev_password@postgres:5432/xlcfi_dev
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9093
+      JAVA_PRODUCT_SERVICE_URL: http://product-service:8082
+      INTERNAL_JWT_SECRET: internal-secret-key-change-in-production
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - xlcfi-network
+    profiles:
+      - python-services
+
+  # Python Recommendation Service
+  recommendation-service:
+    build:
+      context: ./python-services/recommendation-service
+      dockerfile: Dockerfile
+    container_name: xlcfi-recommendation-service
+    ports:
+      - "5002:5002"
+    environment:
+      FLASK_ENV: development
+      DATABASE_URL: postgresql://xlcfi_dev:dev_password@postgres:5432/xlcfi_dev
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      PORT: 5002
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - xlcfi-network
+    profiles:
+      - python-services
+
+volumes:
+  postgres_data:
+  redis_data:
+  zookeeper_data:
+  zookeeper_log:
+  kafka_data:
+  es_data:
+
+networks:
+  xlcfi-network:
+    driver: bridge
+
