@@ -33,12 +33,13 @@ payment:
     client-key: ${TOSS_CLIENT_KEY:test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq}
   
   nicepay:
-    merchant-key: ${NICEPAY_MERCHANT_KEY}
+    merchant-key: ${NICEPAY_MERCHANT_KEY:test_merchant_key}
+    merchant-id: ${NICEPAY_MERCHANT_ID:test_merchant_id}
     api-url: ${NICEPAY_API_URL:https://api.nicepay.co.kr}
   
   stripe:
-    secret-key: ${STRIPE_SECRET_KEY}
-    webhook-secret: ${STRIPE_WEBHOOK_SECRET}
+    secret-key: ${STRIPE_SECRET_KEY:sk_test_your_stripe_secret_key}
+    webhook-secret: ${STRIPE_WEBHOOK_SECRET:whsec_your_webhook_secret}
 
 logging:
   level:
