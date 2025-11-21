@@ -1658,7 +1658,7 @@ const getProductIndices = async (productId) => {
 
 ## 문서 목록
 
-### 설계 문서 (004.design/) - 17개
+### 아키텍처 설계 문서 (004.architecture/) - 17개
 1. `01_database_design.md` - 데이터베이스 설계
 2. `02_table_lists.md` - 테이블 목록
 3. `03_api_specs_phase1.md` - API 명세 (Phase 1)

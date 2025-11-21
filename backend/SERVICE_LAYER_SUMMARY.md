@@ -428,8 +428,8 @@ Service Layer 구현이 완료되었습니다. 다음 작업으로 진행할 수
 ## 참고 문서
 
 - [Database Schema Summary](./DATABASE_SCHEMA_SUMMARY.md): 데이터베이스 스키마 구현 내역
-- [Java API Specs](../004.design/11_java_api_specs_detailed.md): Java API 상세 명세
-- [Hybrid Architecture Design](../004.design/10_hybrid_architecture_design.md): 하이브리드 아키텍처 설계
+- [Java API Specs](../004.architecture/11_java_api_specs_detailed.md): Java API 상세 명세
+- [Hybrid Architecture Design](../004.architecture/10_hybrid_architecture_design.md): 하이브리드 아키텍처 설계
 
 ---
 

@@ -5,7 +5,7 @@
 ## 프로젝트 구조
 
 - `/backend` - 백엔드 코드 (Java Spring Boot, Python Flask, 블록체인)
-- `/004.design` - 설계 문서
+- `/004.architecture` - 시스템 아키텍처 설계 문서
 
 ## 기술 스택
 
@@ -23,7 +23,7 @@
 
 ## 문서
 
-### 설계 문서 (004.design/)
+### 아키텍처 설계 문서 (004.architecture/)
 1. 데이터베이스 설계
 2. 하이브리드 아키텍처
 3. Java API 명세

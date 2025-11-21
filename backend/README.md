@@ -339,10 +339,10 @@ curl http://localhost:8081/actuator/prometheus
 
 ## 참고 문서
 
-- [하이브리드 아키텍처 설계서](../004.design/10_hybrid_architecture_design.md)
-- [Java API 명세서](../004.design/11_java_api_specs_detailed.md)
-- [Python API 명세서](../004.design/12_python_api_specs_detailed.md)
-- [서비스 간 통신 시퀀스](../004.design/13_service_communication_sequences.md)
+- [하이브리드 아키텍처 설계서](../004.architecture/10_hybrid_architecture_design.md)
+- [Java API 명세서](../004.architecture/11_java_api_specs_detailed.md)
+- [Python API 명세서](../004.architecture/12_python_api_specs_detailed.md)
+- [서비스 간 통신 시퀀스](../004.architecture/13_service_communication_sequences.md)
 
 ## 라이선스
 

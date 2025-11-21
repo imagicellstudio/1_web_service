@@ -250,8 +250,8 @@ reset-database.bat
 
 ## 참고 문서
 
-- [Database Design](../004.design/01_database_design.md): 상세 데이터베이스 설계
-- [Java API Specs](../004.design/11_java_api_specs_detailed.md): Java API 명세
+- [Database Design](../004.architecture/01_database_design.md): 상세 데이터베이스 설계
+- [Java API Specs](../004.architecture/11_java_api_specs_detailed.md): Java API 명세
 - [DB Setup Guide](./DB_SETUP_GUIDE.md): 데이터베이스 설정 가이드
 - [Scripts README](./scripts/README.md): 스크립트 사용 가이드
 
