@@ -1099,7 +1099,7 @@ curl -X POST https://api.spicyjump.com/v1/products \
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 최종 업데이트: 2025-11-19
 - API 버전: v1
 - 다음 리뷰: Phase 1 구현 완료 시
