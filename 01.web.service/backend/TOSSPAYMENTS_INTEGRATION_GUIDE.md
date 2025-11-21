@@ -520,3 +520,4 @@ boolean existsPendingPayment = paymentRepository.existsByOrderIdAndStatusIn(
 **작성자:** AI Assistant  
 **구현 상태:** ✅ 완료
 
+

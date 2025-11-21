@@ -944,3 +944,4 @@ payment:
 **작성자:** AI Assistant  
 **다음 검토:** Phase 1 완료 후
 
+

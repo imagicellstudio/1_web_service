@@ -714,3 +714,4 @@ XLCFI Token + USDT + XLCFI-Stable (선택)
 **작성자:** AI Assistant  
 **검토 필요:** 법무팀, 기술팀, 재무팀
 
+
