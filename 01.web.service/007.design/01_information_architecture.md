@@ -24,15 +24,18 @@
 ## I.A 개요
 
 ### 플랫폼 목적
+
 K-Food 원료, 원산지, 음식, 요리방법, 레시피 등을 소개하고 거래할 수 있는 플랫폼
 
 ### 주요 사용자 그룹
+
 1. **일반 방문자** - 정보 탐색, 회원가입
 2. **구매자 (BUYER)** - 상품 구매, 리뷰 작성
 3. **판매자 (SELLER)** - 상품 등록/관리, NFT 발행
 4. **관리자 (ADMIN)** - 전체 시스템 관리
 
 ### 핵심 기능 영역
+
 - 🔐 **인증/인가** - 회원가입, 로그인, 프로필 관리
 - 🛍️ **상품** - 조회, 검색, 상세, 원산지 추적
 - 🛒 **주문/결제** - 장바구니, 주문, 멀티 PG 결제
@@ -86,7 +89,7 @@ XLCfi Platform (SpicyJump)
 │  │  ├─ 레시피 NFT
 │  │  └─ 멤버십 NFT
 │  ├─ 토큰 지갑 (/mypage/wallet)
-│  │  ├─ XLCFI 토큰 잔액
+│  │  ├─ XLCfi 토큰 잔액
 │  │  ├─ 거래 내역
 │  │  └─ 현금화 신청
 │  └─ 설정 (/mypage/settings)
@@ -126,7 +129,7 @@ XLCfi Platform (SpicyJump)
 │  │  └─ 거래 상세
 │  │
 │  └─ 토큰 정보 (/blockchain/token)
-│     ├─ XLCFI 토큰 소개
+│     ├─ XLCfi 토큰 소개
 │     ├─ 토큰 이코노미
 │     └─ 획득 방법
 │
@@ -194,6 +197,7 @@ XLCfi Platform (SpicyJump)
 #### 1. 상단 네비게이션 (Header)
 
 **좌측:**
+
 - **Logo** - 홈으로 이동
 - **카테고리 메뉴** - 드롭다운
   - 채소류
@@ -204,21 +208,23 @@ XLCfi Platform (SpicyJump)
   - 레시피
 
 **중앙:**
+
 - **검색바**
   - 통합 검색
   - 자동완성
   - 최근 검색어
 
 **우측:**
+
 - **알림** 🔔 (로그인 시)
   - 주문 상태 알림
   - 리뷰 알림
   - 토큰 획득 알림
-  
+
 - **장바구니** 🛒 (로그인 시)
   - 장바구니 아이템 수
   - 미니 장바구니 미리보기
-  
+
 - **사용자 메뉴** 👤
   - 비로그인: 로그인/회원가입
   - 로그인: 프로필 드롭다운
@@ -227,7 +233,7 @@ XLCfi Platform (SpicyJump)
     - NFT 컬렉션
     - 토큰 지갑
     - 로그아웃
-  
+
 - **언어 선택** 🌐
   - KO (한국어)
   - EN (English)
@@ -237,22 +243,26 @@ XLCfi Platform (SpicyJump)
 #### 2. 하단 네비게이션 (Footer)
 
 **1열:**
+
 - 회사 소개
 - 이용약관
 - 개인정보처리방침
 - 사업자 정보
 
 **2열:**
+
 - 고객센터
 - FAQ
 - 공지사항
 - 파트너 문의
 
 **3열:**
+
 - SNS 링크 (Instagram, Facebook, Twitter)
 - 앱 다운로드 (iOS, Android)
 
 **4열:**
+
 - 저작권 정보
 - 사업자 등록번호
 - 통신판매업 신고번호
@@ -260,6 +270,7 @@ XLCfi Platform (SpicyJump)
 #### 3. 모바일 네비게이션
 
 **햄버거 메뉴 (☰):**
+
 ```
 ┌─────────────────────┐
 │ ☰ Menu              │
@@ -280,6 +291,7 @@ XLCfi Platform (SpicyJump)
 ```
 
 **하단 탭 바 (Bottom Tab Bar):**
+
 ```
 ┌──────┬──────┬──────┬──────┬──────┐
 │ 🏠   │ 🛍️   │  🔍  │ 🛒   │ 👤   │
@@ -340,7 +352,7 @@ XLCfi Platform (SpicyJump)
     ├─ 텍스트 리뷰
     ├─ 사진 첨부
     ├─ 시각적 반응 선택
-    └─ 토큰 적립 (100 XLCFI)
+    └─ 토큰 적립 (100 XLCfi)
 ```
 
 ### Journey 2: 판매자 - 상품 등록
@@ -373,7 +385,7 @@ XLCfi Platform (SpicyJump)
    ↓
 7. 상품 등록 완료
    ├─ 관리자 승인 대기
-   └─ 토큰 적립 (상품당 10 XLCFI)
+   └─ 토큰 적립 (상품당 10 XLCfi)
    ↓
 8. 승인 후 판매 시작
 ```
@@ -396,7 +408,7 @@ XLCfi Platform (SpicyJump)
    ↓
 4. P2P 거래 시작
    ├─ 구매 의사 표시
-   └─ XLCFI 토큰 준비
+   └─ XLCfi 토큰 준비
    ↓
 5. Escrow 계약
    ├─ 토큰 예치
@@ -651,10 +663,10 @@ graph TD
 │  └─ P2P 거래 등록
 │
 ├─ 토큰 지갑
-│  ├─ XLCFI 잔액
+│  ├─ XLCfi 잔액
 │  ├─ 획득 내역
 │  │  ├─ 상품 판매 (1%)
-│  │  ├─ 리뷰 작성 (100 XLCFI)
+│  │  ├─ 리뷰 작성 (100 XLCfi)
 │  │  └─ 추천인 보상 (0.5%)
 │  ├─ 사용 내역
 │  └─ 현금화 신청
@@ -719,6 +731,7 @@ graph TD
 | 시스템 설정 | - | ✗ | ✗ | ✓ |
 
 **범례:**
+
 - ✓ : 접근 가능
 - ✗ : 접근 불가
 - - : 해당 없음
@@ -742,12 +755,14 @@ graph TD
 ## 참고 문서
 
 ### 백엔드 설계 문서
+
 - [Database Design](../../004.architecture/01_database_design.md)
 - [Function Specs](../../004.architecture/06_function_specs.md)
 - [User Interface Design](../../004.architecture/07_user_interface_design.md)
 - [Backend Implementation Milestone](../../backend/BACKEND_IMPLEMENTATION_MILESTONE.md)
 
 ### 프론트엔드 설계 문서
+
 - [Frontend Responsive Design](./01_frontend_responsive_design.md) (기존)
 
 ---

@@ -404,3 +404,4 @@ CREATE INDEX idx_recipe_creator_sale ON recipe_nfts(creator_id, is_for_sale);
 CREATE INDEX idx_membership_user_active ON membership_nfts(user_id, is_active, expires_at);
 
 
+
