@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/xlcfi_db
+    username: xlcfi_user
+    password: xlcfi_password
+  
+  jpa:
+    show-sql: true
+
+logging:
+  level:
+    com.xlcfi: DEBUG
+

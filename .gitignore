@@ -1,0 +1,32 @@
+# Large design files
+*.ai
+*.psd
+*.sketch
+*.fig
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Build
+target/
+build/
+dist/
+*.class
+*.jar
+*.war
+
+# Dependencies
+node_modules/
+venv/
+__pycache__/
+
+# Environment
+.env
+.env.local
+
+# OS
+.DS_Store
+Thumbs.db
+
