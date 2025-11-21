@@ -1,6 +1,6 @@
 # SpicyJump Web Service
 
-K-Food 플랫폼 웹 서비스 구축 프로젝트
+웹기반 K-Food 거래 플랫폼 서비스 프로젝트
 
 ## 프로젝트 구조
 
