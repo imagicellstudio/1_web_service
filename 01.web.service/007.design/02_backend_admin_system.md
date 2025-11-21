@@ -1056,7 +1056,7 @@ export const TranslationManagement: React.FC = () => {
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 최종 업데이트: 2025-11-19
 - 다음 단계: 실제 구현 시작
 

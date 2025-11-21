@@ -472,7 +472,7 @@ async def call_foodsafety_api(endpoint, params):
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 검토자: [검토자명]
 - 최종 업데이트: 2025-11-19
 

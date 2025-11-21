@@ -1135,7 +1135,7 @@ export const MarketPriceWidget: React.FC<{ foodType: string; region: string }> =
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 최종 업데이트: 2025-11-19
 - 연관 문서: 평가관리 CMS 시스템, 플랫폼 아키텍처
 

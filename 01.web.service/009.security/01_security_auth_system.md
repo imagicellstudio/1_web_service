@@ -926,7 +926,7 @@ async def detect_suspicious_activity(user_id: int, db: Session):
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 최종 업데이트: 2025-11-19
 - 다음 검토: 월별 보안 검토 시
 

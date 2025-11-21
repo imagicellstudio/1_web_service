@@ -791,7 +791,7 @@ EXPLAIN ANALYZE SELECT * FROM products WHERE status = 'published';
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 최종 업데이트: 2025-11-19
 - 다음 리뷰: Phase 1 구현 완료 시
 

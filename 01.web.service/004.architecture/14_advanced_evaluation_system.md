@@ -1979,8 +1979,7 @@ const IndexDisplayCard: React.FC<{ productId: number }> = ({ productId }) => {
 ---
 
 **작성일:** 2025-11-20  
-**작성자:** AI Assistant  
-**상태:** 설계 완료  
+**작성자:** 장재훈  **상태:** 설계 완료  
 **다음 단계:** Phase 1 구현 시작
 
 

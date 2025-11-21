@@ -1449,7 +1449,7 @@ async def create_review_labels_for_ai(review_id: int, db: Session):
 ---
 
 **문서 관리**
-- 작성자: [담당자명]
+- 작성자: 장재훈
 - 최종 업데이트: 2025-11-19
 - 연관 문서: 플랫폼 아키텍처, Backend 관리자 시스템, 데이터베이스 스키마
 

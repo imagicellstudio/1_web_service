@@ -1867,9 +1867,7 @@ try {
 
 **프로젝트명:** XLCfi Platform  
 **백엔드 구현 완료:** 2025-11-20  
-**문서 작성자:** AI Assistant  
-
-**Git Repository:** (GitHub URL 추가 예정)  
+**문서 작성자:** 장재훈  **Git Repository:** (GitHub URL 추가 예정)  
 **이슈 트래킹:** (GitHub Issues)  
 **문의:** support@xlcfi.com
 
@@ -1888,6 +1886,7 @@ Apache 2.0 License
 
 **마지막 업데이트:** 2025-11-20  
 **문서 버전:** 1.0.0
+
 
 
 
