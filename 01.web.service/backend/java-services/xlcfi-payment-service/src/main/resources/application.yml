@@ -25,9 +25,25 @@ spring:
 server:
   port: 8084
 
+# 결제 PG 설정
+payment:
+  toss:
+    secret-key: ${TOSS_SECRET_KEY:test_sk_zXLkKEypNArWmo50nX3lmeaxYG5R}
+    api-url: ${TOSS_API_URL:https://api.tosspayments.com}
+    client-key: ${TOSS_CLIENT_KEY:test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq}
+  
+  nicepay:
+    merchant-key: ${NICEPAY_MERCHANT_KEY}
+    api-url: ${NICEPAY_API_URL:https://api.nicepay.co.kr}
+  
+  stripe:
+    secret-key: ${STRIPE_SECRET_KEY}
+    webhook-secret: ${STRIPE_WEBHOOK_SECRET}
+
 logging:
   level:
     com.xlcfi: INFO
     org.hibernate.SQL: DEBUG
+    org.springframework.web.reactive: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: TRACE
 

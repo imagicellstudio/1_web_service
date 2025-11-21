@@ -4,6 +4,9 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-validation")
     
+    // HTTP Client for PG Integration
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    
     // Common modules
     implementation(project(":xlcfi-common:common-core"))
     implementation(project(":xlcfi-common:common-data"))
@@ -15,9 +18,16 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     implementation("org.flywaydb:flyway-core")
     
+    // JSON Processing
+    implementation("com.fasterxml.jackson.core:jackson-databind")
+    implementation("com.fasterxml.jackson.datatype:jackson-datatype-jsr310")
+    
     // Lombok
     compileOnly("org.projectlombok:lombok")
     annotationProcessor("org.projectlombok:lombok")
+    
+    // Test
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.12.0")
 }
 
 // Disable Spring Boot bootJar for this module if it's a library
