@@ -1,0 +1,25 @@
+# Prettier Ignore File
+# 마크다운 문서는 수동으로 포맷팅 관리
+
+# 설계 문서
+004.architecture/**/*.md
+007.design/**/*.md
+
+# 백엔드 문서
+backend/**/*.md
+
+# 프론트엔드 문서
+frontend/**/*.md
+
+# 루트 문서
+*.md
+
+# 기타 제외 파일
+node_modules/
+dist/
+build/
+.next/
+coverage/
+*.log
+
+
